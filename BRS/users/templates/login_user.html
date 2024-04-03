@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Reservation System</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/trial.css' %}" />
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h2>Bus Reservation System</h2>
+            <img src="{% static 'images/bus_logo.jpg' %}" alt="Bus Image">
+        </div>
+        <div class="right">
+            <div class="login-box">
+                <h1>{{msg.success}}</h1>
+                <h2>Login</h2>
+                <form action="{% url 'login_user' %}" method="post">{% csrf_token %}
+                    <div class="user-box">
+                        <input type="text" name="username" id="username" required>
+                        <label>Username</label>
+                    </div>
+                    <div class="user-box">
+                        <input type="password" name="password" id="password" required>
+                        <label>Password</label>
+                    </div>
+                    <label style="color: red;">{{msg.error}}</label><br />
+                    <button type="submit" value="Login">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Login
+                    </button>
+                </form>
+            </div>
+            <p>Don't have an account? <a href="register">Register</a></p>
+        </div>
+    </div>
+</body>
+</html>

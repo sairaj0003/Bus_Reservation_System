@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Reservation System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bookbus.css' %}" />
+    <style>
+        /* Add background image */
+        body {
+            background-image: url("{% static 'images/bus1.jpg' %}"); 
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="success">Bus Reservation System</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="findbus">Find Bus</a>
+              <a class="nav-link" href="booklist">My Bookings</a>
+              <a class="nav-link" href="logout_user">Logout</a>
+            </div>
+          </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h2>Scheduled Buses</h2>
+        {% if bus_list %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Bus ID</th>
+                    <th>Bus Name</th>
+                    <th>Source</th>
+                    <th>Destination</th>
+                    <th>Total Seats</th>
+                    <th>Seats Remaining</th>
+                    <th>Cost</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for bus in bus_list %}
+                    <tr>
+                        <td>{{ bus.bus_id }}</td>
+                        <td>{{ bus.bus_name }}</td>
+                        <td>{{ bus.source }}</td>
+                        <td>{{ bus.destination }}</td>
+                        <td>{{ bus.no_of_seats }}</td>
+                        <td>{{ bus.rem_seats }}</td>
+                        <td>{{ bus.cost }}</td>
+                        <td>{{ bus.date }}</td>
+                        <td>{{ bus.time }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="booking-form">
+            <h2>Book Your Seat</h2>
+            <form action="{% url 'booking' %}" method="post">{% csrf_token %}
+                <div class="form-group">
+                    <label for="busid">Enter Bus ID:</label>
+                    <input type="text" id="busid" name="busid" required>
+                </div>
+                <div class="form-group">
+                    <label for="noofseats">Number of Seats:</label>
+                    <input type="number" id="noofseats" name="noofseats" required>
+                </div>
+                <label style="color: red;">{{msg.error}}</label><br />
+                <button type="submit">Book Now</button>
+            </form>
+        </div>
+        {% else %}
+            <p>No available Bus Schedule for entered Route and Date</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>
