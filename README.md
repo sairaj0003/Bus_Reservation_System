@@ -15,8 +15,6 @@
 
 ![Screenshot 2024-03-31 232024](https://github.com/sairaj0003/Bus_Reservation_System/assets/140234339/e93ba54e-938a-4f7b-8bf5-e2fca469cab1)
 
-![Screenshot 2024-03-31 232058](https://github.com/sairaj0003/Bus_Reservation_System/assets/140234339/6723f16e-a950-4518-884d-3f5eda061532)
-
 ![Screenshot 2024-03-31 232126](https://github.com/sairaj0003/Bus_Reservation_System/assets/140234339/f70864af-2f23-4f13-92a9-d7b34777a910)
 
 ![Screenshot 2024-03-31 232454](https://github.com/sairaj0003/Bus_Reservation_System/assets/140234339/3248a9b2-9c84-45f1-aacf-f164d05651cf)
