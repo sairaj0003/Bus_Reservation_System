@@ -9,7 +9,7 @@
 
 
 ## Screenshots
-![image](https://github.com/sairaj0003/Bus_Reservation_System/assets/140234339/1279839e-b287-4904-8b8b-5f942ad52350)
+![Screenshot 2024-03-31 231640](https://github.com/sairaj0003/Bus_Reservation_System/assets/140234339/9593dc5a-5379-4a1b-aa82-c1412b263607)
 
 ![image](https://github.com/sairaj0003/Bus_Reservation_System/assets/140234339/1f4b5859-56b3-4243-8aee-fc7d48b44809)
 
